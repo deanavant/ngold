@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All Players</title>
+</head>
+<body>
+	<p><a href="/ngold/">Dashboard</a> |
+		<a href="/ngold/logout">Logout</a>
+	</p>
+	<h1>All Players</h1>
+	{% if players %}
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Gold</th>
+			</tr>
+			{% for player in players %}
+				{{player|safe}}
+			{% endfor %}
+		</table>
+	{% endif %}
+</body>
+</html>

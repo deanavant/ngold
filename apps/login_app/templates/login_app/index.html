@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Gold Login</title>
+</head>
+<body>
+	<h1>Login</h1>
+	<form action="login" method="post">
+		{% csrf_token %}
+		<p><input type="text" name="email" placeholder="Email" value=""></p>
+		<p><input type="password" name="password" placeholder="Password" value=""></p>
+		<p><input type="submit" value="Submit"></p>
+	</form>
+	<h1>Register</h1>
+	<form action="register" method="post">
+		{% csrf_token %}
+		<p><input type="text" name="first_name" placeholder="First name" value=""></p>
+		<p><input type="text" name="last_name" placeholder="Last name" value=""></p>
+		<p><input type="text" name="email" placeholder="Email" value=""></p>
+		<p><input type="password" name="password" placeholder="Password"></p>
+		<p><input type="password" name="pwc" placeholder="Confirm pw"></p>
+		<p><input type="submit" value="Submit"></p>
+	</form>
+	{% if messages %}
+		{% for message in messages %}
+			<p>{{message}}</p>
+		{% endfor %}
+	{% endif %}
+</body>
+</html>

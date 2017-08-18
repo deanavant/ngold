@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Show Player</title>
+</head>
+<body>
+	<p><a href="/ngold/">Dashboard</a> |
+		<a href="/ngold/logout">Logout</a> |
+		<a href="/ngold/play">Play</a>
+	</p>
+	<h3>Player Name: {{player_name}}</h3>
+	<h3>Player Gold: {{player_gold}}</h3>
+	<h3>Recent Activities:</h3>
+	{% if results %}
+		{% for result in results %}
+			{{result|safe}}
+		{% endfor %}
+	{% endif %}
+</body>
+</html>

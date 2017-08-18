@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Gold Dashboard</title>
+</head>
+<body>
+	<h1>Dashboard</h1>
+	<p><a href="/ngold/logout">Logout</a> |
+		<a href="/ngold/play">Play</a> |
+		<a href="/ngold/all_players">All Players</a></p>
+	{% if players %}
+		<h3>Top 5 players</h3>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Gold</th>
+			</tr>
+			{% for player in players %}
+				{{player|safe}}
+			{% endfor %}
+		</table>
+	{% endif %}
+</body>
+</html>

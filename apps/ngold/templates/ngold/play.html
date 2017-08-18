@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Gold!</title>
+</head>
+<body>
+	<p><a href="/ngold/logout">Logout</a> |
+		<a href="/ngold/">Dashboard</a></p>
+	<header>
+		Your Gold:  <input type="text" name="myGold" value="{{request.session.gold}}">
+	</header>
+	<main>
+		<div class="box" id="Cave">
+			<p>Cave</p>
+			<p>-5 to 5 gold</p>
+			<form action="/ngold/process_gold" method="post">
+				{% csrf_token %}
+				<input type="hidden" name="building" value="cave">
+				<input type="submit" value="Go!">
+			</form>
+		</div>
+		<div class="box" id="Castle">
+			<p>Castle</p>
+			<p>-10 to 10 gold</p>
+			<form action="/ngold/process_gold" method="post">
+				{% csrf_token %}
+				<input type="hidden" name="building" value="castle">
+				<input type="submit" value="Go!">
+			</form>
+		</div>
+		<div class="box" id="Farm">
+			<p>Farm</p>
+			<p>-1 to 1 gold</p>
+			<form action="/ngold/process_gold" method="post">
+				{% csrf_token %}
+				<input type="hidden" name="building" value="farm">
+				<input type="submit" value="Go!">
+			</form>
+		</div>
+	</main>
+	<h3>Activities</h3>
+	<footer>
+		{% if results %}
+			{% for result in results %}
+				{{result|safe}}
+			{% endfor %}
+		{% endif %}
+	</footer>
+</body>
+</html>
